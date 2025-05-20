@@ -1,41 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-
-    <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.3.1/dist/css/coreui.min.css" rel="stylesheet"
-        integrity="sha384-PDUiPu3vDllMfrUHnurV430Qg8chPZTNhY8RUpq89lq22R3PzypXQifBpcpE1eoB" crossorigin="anonymous">
-
-</head>
-
-<style>
-    
+    <title>Event RSVP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #e3f0ff 0%, #b3d1f7 100%);
             min-height: 100vh;
         }
- 
+       
         .navbar {
             background: linear-gradient(90deg, #1976d2 0%, #2196f3 100%) !important;
             margin-bottom: 2rem;
         }
- 
+
         .navbar .navbar-brand, .navbar .nav-link {
             color: #fff !important;
         }
- 
+
         .navbar .nav-link.active, .navbar .nav-link:focus, .navbar .nav-link:hover {
             color: #e3f0ff !important;
             text-decoration: underline;
         }
- 
+
         .container {
             max-width: 800px;
             background: #fff;
@@ -44,7 +35,7 @@
             box-shadow: 0 4px 24px 0 rgba(33, 150, 243, 0.10);
             margin-top: 2rem;
         }
- 
+     
         .section-title {
             font-weight: bold;
             font-size: 2rem;
@@ -53,252 +44,462 @@
             color: #1565c0;
             letter-spacing: 1px;
         }
- 
+
         .divider {
             border-bottom: 2px solid #90caf9;
             margin-bottom: 2rem;
         }
- 
+
         .form-label {
             font-weight: 500;
             color: #1976d2;
         }
- 
+
         .form-section {
             margin-bottom: 2rem;
         }
- 
+
         .form-check-label {
             font-weight: 400;
             color: #1976d2;
         }
- 
+
         .form-select, .form-control {
             margin-bottom: 1rem;
             border-radius: 8px;
             border: 1px solid #90caf9;
         }
- 
+
         .form-select:focus, .form-control:focus {
             border-color: #1976d2;
             box-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.15);
         }
- 
-       
-</style>
-
+        
+        .submit-btn {
+            width: 200px;
+            margin: 2rem auto 0 auto;
+            display: block;
+            background: linear-gradient(90deg, #1976d2 0%, #2196f3 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px 0 rgba(33, 150, 243, 0.10);
+        }
+        .submit-btn:hover {
+            background: linear-gradient(90deg, #1565c0 0%, #1976d2 100%);
+            color: #e3f0ff;
+        }
+        
+        .modal-content {
+            border-radius: 16px;
+            border: 2px solid #90caf9;
+        }
+        .modal-header {
+            background: #e3f0ff;
+            border-bottom: 1px solid #90caf9;
+        }
+        .modal-title {
+            color: #1565c0;
+        }
+        .modal-footer {
+            background: #e3f0ff;
+            border-top: 1px solid #90caf9;
+        }
+        .btn-primary, #confirmReceipt.btn-primary {
+            background: linear-gradient(90deg, #1976d2 0%, #2196f3 100%);
+            border: none;
+            color: #fff;
+        }
+        .btn-primary:hover, #confirmReceipt.btn-primary:hover {
+            background: linear-gradient(90deg, #1565c0 0%, #1976d2 100%);
+            color: #e3f0ff;
+        }
+        .small-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .mb-0 {
+            margin-bottom: 0 !important;
+        }
+    </style>
+</head>
 <body>
-    <!--navbar-->
-    <nav class="navbar navbar-expand-lg navbar-darkbg-primary">
-        <div class="container-fluid" style="max-width: 800px";>
-            <a class="navbar-brand" href="#event-info">Philippine Tech Association</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<!--acts as a receipt for the whole choices select ed of the user--! 
+<div class="modal fade" id="receiptModal" tabindex="-1" aria-labelledby="receiptModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="receiptModalLabel">RSVP Confirmation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="receiptContent">
+        <!-- Receipt content will be injected here -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="confirmReceipt">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#event-info">Event Info</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#meals">Meals</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact Info</a>
-                </li>
-            </ul>
-        </div>
-     </div>
-    </nav>
+<!--NAVBAR-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid" style="max-width: 800px;">
+    <a class="navbar-brand" href="#event-info">Philippine Tech Association</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#event-info">Event Info</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#meals">Meals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-    <!-- forms na mostly choices lang about sa event (can u come or not) -->
-     <div class="container" style="max-width: 800px; background: #fff; padding: 2rem 2rem 1rem 2rem; border-radius: 16px; box-shadow: 0 4px 24px 0 rgba(33, 150, 243, 0.10);">
-    <div id="event-info" class="section-title">Event Info</div>
+<!--FORMS and stuff choices mostly-->
+
+<div class="container" style="max-width: 800px; background: #fff; padding: 2rem 2rem 1rem 2rem; border-radius: 16px; box-shadow: 0 4px 24px 0 rgba(33, 150, 243, 0.10);">
+    <div id="event-info" class="section-title">Event Information</div>
     <div class="divider"></div>
     <div class="mb-4">
-        <div style="font-weight: bold;">The Philippine Tech Association is having an event.</div>
+        <div style="font-weight: bold; color: #17596b; font-size: 2rem; margin-bottom: 1rem;">Mabuhay!</div>
+        <div style="font-weight: bold;">The Philippine Tech Association is having an event</div>
         <div style="font-weight: bold;">10:00 AM - 5:00 PM</div>
         <div style="font-weight: bold;">20 June 2025, Friday</div>
-            <div class="mt-3">
-                SMX Convention Center Manila<br>
-                Seashell Ln, Pasay<br>
-                Pasay, Metro Manila<br>
-                Philippines
-            </div>
+        <div class="mt-3">
+            Manila Conference Center<br>
+            J. Quintos Street, Ermita<br>
+            Manila, Metro Manila 1000<br>
+            Philippines
         </div>
     </div>
 
     <form id="rsvpForm">
         <div class="mb-3" style="color: #666; font-size: 0.9rem;">
-            <span style="color: #dc3545;">*</span> indicates required fields.
+            <span style="color: #dc3545;">*</span> indicates required fields
         </div>
 
-        <!-- attendance section -->
-         <div class="form-section">
+        <!--attendance checklist-->
+        <div class="form-section">
             <label class="form-label">Will you be able to attend the event? <span style="color: #dc3545;">*</span></label><br>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="attend" id="attendYes" value="Yes" required>
                 <label class="form-check-label" for="attendYes">Yes</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="attend" id="attendNo" value="No" required>
+                <input class="form-check-input" type="radio" name="attend" id="attendNo" value="No">
                 <label class="form-check-label" for="attendNo">No</label>
             </div>
-            <label class="form-label mt-3">Number of People Attending <span style="color: #dc3545;">*</span></label>
+            <label class="form-label mt-3">Number of people attending <span style="color: #dc3545;">*</span></label>
             <select class="form-select" id="numPeople" name="numPeople" required>
                 <option value="">Please Select</option>
-                <option>0</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
                 <option>4</option>
                 <option>5</option>
             </select>
-         </div>
+        </div>
 
-         <!-- meeting thingy -->
-          <div class="form-section">
-            <div style="font-weight: bold;">There is an orientation event at 9:00 AM</div>
-            <label class="form-label mt-2">Are you able to attend the orientation?</label><br>
+        <!--meeting thingy-->
+        <div class="form-section">
+            <div style="font-weight: bold;">There is an Orientation Event at 9:00 AM</div>
+            <label class="form-label mt-2">Would you like to attend the event?</label><br>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="orientation" id="orientationYes" value="Yes" required>
+                <input class="form-check-input" type="radio" name="orientation" id="orientationYes" value="Yes">
                 <label class="form-check-label" for="orientationYes">Yes</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="orientation" id="orientationNo" value="No" required>
+                <input class="form-check-input" type="radio" name="orientation" id="orientationNo" value="No">
                 <label class="form-check-label" for="orientationNo">No</label>
             </div>
-            <label class="form-label mt-3">Number of People Attending <span style="color: #dc3545;">*</span></label>
-            <select class="form-select" id="numOrientation" name="numOrientation" required>
+            <label class="form-label mt-3">Number of people attending</label>
+            <select class="form-select" id="numOrientation" name="numOrientation">
                 <option value="">Please Select</option>
-                <option>0</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
                 <option>4</option>
                 <option>5</option>
             </select>
-        
-        <!-- foods section checklist yehh -->
-         <div id="meals" class="section-title" style="font-size: 1.5rem;">Meals</div>
-         <div class="divider" style="margin-bottom: 1rem;"></div>
-         <div class="mb-2">A lunch will be provided, please select how many of each your party needs</div>
+        </div>
 
-        <!-- side dish -->
-          <div class="section-title" style="font-size: 1.2rem; margin-top: 1rem;">Side Dish</div>
-          <div class="row">
+
+        <!--FOOOOOOOOODDDDSSSSSSSSS-->
+        <div id="meals" class="section-title" style="font-size: 1.5rem;">Meals</div>
+        <div class="divider" style="margin-bottom: 1rem;"></div>
+        <div class="mb-2">A lunch will be provided, please select how many of each your party needs</div>
+        <!-- Side Dish Section -->
+        <div class="section-title" style="font-size: 1.2rem; margin-top:1rem;">Side Dish</div>
+        <div class="row">
             <div class="col-md-6">
                 <label class="form-label">Salad</label>
                 <select class="form-select" name="salad">
                     <option value="">Please Select</option>
-                    <option>0</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
                 </select>
             </div>
-          </div>
-
-        <!-- main dishes yumm -->
-          <div class="section-title" style="font-size: 1.2rem; margin-top: 1rem;">Main Dish</div>
-          <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">Soup</label>
+                <select class="form-select" name="soup">
+                    <option value="">Please Select</option>
+                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                </select>
+            </div>
+        </div>
+        <!-- Main Dish Section -->
+        <div class="section-title" style="font-size: 1.2rem; margin-top:1rem;">Main Dish</div>
+        <div class="row">
             <div class="col-md-6">
                 <label class="form-label">Chicken Adobo</label>
                 <select class="form-select" name="adobo">
                     <option value="">Please Select</option>
-                    <option>0</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
                 </select>
             </div>
-
             <div class="col-md-6">
                 <label class="form-label">Grilled Fish</label>
                 <select class="form-select" name="fish">
-                    <option value="">Grilled Fish</option>
-                    <option>0</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                    <option value="">Please Select</option>
+                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
                 </select>
             </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Chopseuy</label>
-                <select class="form-select" name="vegetarian">
-                    <option value="">Chopseuy</option>
-                    <option>0</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-
-             <div class="col-md-6">
-                <label class="form-label">Pasta</label>
-                <select class="form-select" name="pasta">
-                    <option value="">Pasta</option>
-                    <option>0</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-
-             <div class="col-md-6">
-                <label class="form-label">Japanese Sushi</label>
-                <select class="form-select" name="sushi">
-                    <option value="">Japanese Sushi</option>
-                    <option>0</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-          </div>
-
         </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">Vegetable Stir Fry</label>
+                <select class="form-select" name="vegetarian">
+                    <option value="">Please Select</option>
+                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Pasta Primavera</label>
+                <select class="form-select" name="pasta">
+                    <option value="">Please Select</option>
+                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">Sushi Platter</label>
+                <select class="form-select" name="sushi">
+                    <option value="">Please Select</option>
+                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Indian Curry</label>
+                <select class="form-select" name="curry">
+                    <option value="">Please Select</option>
+                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">Classic Burger</label>
+                <select class="form-select" name="burger">
+                    <option value="">Please Select</option>
+                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                </select>
+            </div>
+        </div>
+        <!-- Dessert Section -->
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">Cake</label>
+                <select class="form-select" name="cake">
+                    <option value="">Please Select</option>
+                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Fruit</label>
+                <select class="form-select" name="fruit">
+                    <option value="">Please Select</option>
+                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">Ice Cream</label>
+                <select class="form-select" name="icecream">
+                    <option value="">Please Select</option>
+                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                </select>
+            </div>
+        </div>
+        <!-- Drinks Section -->
+        <div class="section-title" style="font-size: 1.2rem; margin-top:1rem;">Drinks</div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">Water</label>
+                <select class="form-select" name="water">
+                    <option value="">Please Select</option>
+                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Juice</label>
+                <select class="form-select" name="juice">
+                    <option value="">Please Select</option>
+                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">Soda</label>
+                <select class="form-select" name="soda">
+                    <option value="">Please Select</option>
+                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Coffee/Tea</label>
+                <select class="form-select" name="coffeetea">
+                    <option value="">Please Select</option>
+                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                </select>
+            </div>
+        </div>
+
+        <!--contact info-->
+        <div id="contact" class="section-title" style="font-size: 1.5rem;">Contact Information</div>
+        <div class="divider" style="margin-bottom: 1rem;"></div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">First Name <span style="color: #dc3545;">*</span></label>
+                <input type="text" class="form-control" name="firstName" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Last Name <span style="color: #dc3545;">*</span></label>
+                <input type="text" class="form-control" name="lastName" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">Email <span style="color: #dc3545;">*</span></label>
+                <input type="email" class="form-control" name="email" placeholder="example@example.com" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" name="phone" placeholder="09XX-XXXX-XXX" 
+                    maxlength="11" 
+                    title="Please enter exactly 11 digits starting with 09"
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                <small class="form-text text-muted">Format: 09XX-XXXX-XXX (11 Digits Only)</small>
+            </div>
+        </div>
+
+        <!--address kol-->
+        <div class="section-title" style="font-size: 1.2rem; margin-top:2rem;">Address</div>
+        <div class="row">
+            <div class="col-12">
+                <input type="text" class="form-control" name="address1" placeholder="Street Address">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <input type="text" class="form-control" name="address2" placeholder="Barangay / Village / Subdivision (optional)">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <input type="text" class="form-control" name="city" placeholder="City / Municipality">
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control" name="state" placeholder="Province">
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control" name="zip" placeholder="Postal / Zip Code">
+            </div>
+        </div>
+        
+        <!--comment section-->
+        <div class="section-title" style="font-size: 1.2rem; margin-top:2rem;">ADDITIONAL INFORMATION</div>
+        <textarea class="form-control" name="additional" rows="4" placeholder="Any special requests or dietary restrictions?"></textarea>
+        <button type="submit" class="btn submit-btn">Submit</button>
     </form>
-   
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
 
 
+    <!--para sa modal na parang receipt-->
 
+    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // taga-kuha ng data ng form na pinili ng user para sa modal 1
+        const form = e.target;
+        function getVal(name) {
+            const el = form.elements[name];
+            if (!el) return '';
+            if (el.type === 'radio') {
+                const checked = form.querySelector(`[name='${name}']:checked`);
+                return checked ? checked.value : '';
+            }
+            return el.value;
+        }
+        // taga-kuha ng data ng form na pinili ng user para sa modal 2 (choices lang to)
+        let receipt = `<strong>Attendance:</strong> ${getVal('attend')}<br>`;
+        receipt += `<strong>Number of people attending:</strong> ${getVal('numPeople')}<br>`;
+        receipt += `<strong>Orientation event:</strong> ${getVal('orientation')}<br>`;
+        receipt += `<strong>Number attending orientation:</strong> ${getVal('numOrientation')}<br>`;
+        receipt += `<hr><strong>Meals:</strong><br>`;
+        receipt += `Chicken Adobo: ${getVal('adobo')}<br>`;
+        receipt += `Grilled Fish: ${getVal('fish')}<br>`;
+        receipt += `Vegetable Stir Fry: ${getVal('vegetarian')}<br>`;
+        receipt += `Pasta Primavera: ${getVal('pasta')}<br>`;
+        receipt += `Sushi Platter: ${getVal('sushi')}<br>`;
+        receipt += `Indian Curry: ${getVal('curry')}<br>`;
+        receipt += `Classic Burger: ${getVal('burger')}<br>`;
+        receipt += `<hr><strong>Contact:</strong><br>`;
+        receipt += `Name: ${getVal('firstName')} ${getVal('lastName')}<br>`;
+        receipt += `Email: ${getVal('email')}<br>`;
+        receipt += `Phone: ${getVal('phone')}<br>`;
+        receipt += `<hr><strong>Address:</strong><br>`;
+        receipt += `${getVal('address1')}<br>`;
+        receipt += `${getVal('address2')}<br>`;
+        receipt += `${getVal('city')}, ${getVal('state')} ${getVal('zip')}<br>`;
+        receipt += `<hr><strong>Additional Info:</strong><br>${getVal('additional')}`;
+        document.getElementById('receiptContent').innerHTML = receipt;
+        // modal n lilitaw and makikita mga choices na pinili
+        var modal = new bootstrap.Modal(document.getElementById('receiptModal'));
+        modal.show();
+        // confirm button 
+        document.getElementById('confirmReceipt').onclick = function() {
+            modal.hide();
+            form.reset();
+        };
+    });
 
-
+    //smooth scrolling para sa navbar
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            if(this.hash) {
+                e.preventDefault();
+                document.querySelector(this.hash).scrollIntoView({behavior: 'smooth'});
+            }
+        });
+    });
+</script>
 </body>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.3.1/dist/js/coreui.bundle.min.js"
-    integrity="sha384-8QmUFX1sl4cMveCP2+H1tyZlShMi1LeZCJJxTZeXDxOwQexlDdRLQ3O9L78gwBbe"
-    crossorigin="anonymous"></script>
-
-
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
+</html> 
