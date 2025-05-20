@@ -14,173 +14,267 @@
 
 </head>
 
-<!--Colors #efc9ce, #e1efc9, #c9efea, #d7c9ef-->
-<!--text header color #5f3238-->
-
 <style>
-    header {
-        background-color: #d7c9ef;
-        color: #5f3238;
-        padding: 25px;
-        text-align: center;
-        align-content: center;
-    }
-
-    .header-h1 {
-        margin: 0;
-
-    }
-
-    .sidebar {
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-    }
-
-    .li-nav-item{
-        font-size: smaller;
-    }
-
-    .sidebar-SandT {
-        line-height: 0;
-    }
-
-    .sidebar-setup {
-        line-height: 0;
-    }
-
-    .sidebar-track {
-        line-height: 0;
-    }
-
-    .li-nav-title {
-        padding: 5px;
-    }
+    
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e3f0ff 0%, #b3d1f7 100%);
+            min-height: 100vh;
+        }
+ 
+        .navbar {
+            background: linear-gradient(90deg, #1976d2 0%, #2196f3 100%) !important;
+            margin-bottom: 2rem;
+        }
+ 
+        .navbar .navbar-brand, .navbar .nav-link {
+            color: #fff !important;
+        }
+ 
+        .navbar .nav-link.active, .navbar .nav-link:focus, .navbar .nav-link:hover {
+            color: #e3f0ff !important;
+            text-decoration: underline;
+        }
+ 
+        .container {
+            max-width: 800px;
+            background: #fff;
+            padding: 2rem 2rem 1rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px 0 rgba(33, 150, 243, 0.10);
+            margin-top: 2rem;
+        }
+ 
+        .section-title {
+            font-weight: bold;
+            font-size: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #1565c0;
+            letter-spacing: 1px;
+        }
+ 
+        .divider {
+            border-bottom: 2px solid #90caf9;
+            margin-bottom: 2rem;
+        }
+ 
+        .form-label {
+            font-weight: 500;
+            color: #1976d2;
+        }
+ 
+        .form-section {
+            margin-bottom: 2rem;
+        }
+ 
+        .form-check-label {
+            font-weight: 400;
+            color: #1976d2;
+        }
+ 
+        .form-select, .form-control {
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid #90caf9;
+        }
+ 
+        .form-select:focus, .form-control:focus {
+            border-color: #1976d2;
+            box-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.15);
+        }
+ 
+       
 </style>
 
 <body>
-    <!--SideBar-->
-    <div class="sidebar sidebar-dark sidebar-narrow-unfoldable border-end">
-        <div class="sidebar-header border-bottom">
-            <div class="sidebar-brand">logo</div>
-        </div>
-
-        <!--Share and Tools-->
-        <ul class="sidebar-nav">
-
-            <div class="sidebar-SandT">
-                <li class="nav-title">SHARE AND TOOLS</li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="nav-icon cil-speedometer"></i> Links/URL
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="nav-icon cil-speedometer"></i> Emails/Invites
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="nav-icon cil-speedometer"></i> Text Messages
-                    </a>
-                </li>
-                <li class="nav-item nav-group show">
-                    <a class="nav-link nav-dropdown-toggle" href="#">
-                        <i class="nav-icon cil-puzzle"></i> More
-                    </a>
-                </li>
-            </div>
-
-            <!---Setup--->
-            <div class="sidebar-setup">
-                <li class="nav-title">SETUP</li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="nav-icon cil-speedometer"></i> Events
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="nav-icon cil-speedometer"></i> Registration
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="nav-icon cil-speedometer"></i> Links/URL
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="nav-icon cil-speedometer"></i> Emails/Invites
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="nav-icon cil-speedometer"></i> Payment
-                    </a>
-                </li>
-            </div>
-
-
-
-            <!---Track--->
-            <div class="sidebar-track">
-                <li class="nav-title">TRACK</li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="nav-icon cil-speedometer"></i> Attendee List
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="nav-icon cil-speedometer"></i> Reports/Response
-                    </a>
-                </li>
-            </div>
-
-
-
-
-
-            <li class="nav-item mt-auto">
-                <a class="nav-link" href="#">
-                    <i class="nav-icon cil-cloud-download"></i> About Us</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="nav-icon cil-cloud-download"></i> Contact</a>
-            </li>
-
-        </ul>
-    </div>
-
-    <!--NavBar (profile lang)-->
-    <!--<nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <!--navbar-->
+    <nav class="navbar navbar-expand-lg navbar-darkbg-primary">
+        <div class="container-fluid" style="max-width: 800px";>
+            <a class="navbar-brand" href="#event-info">Philippine Tech Association</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link" href="#">Features</a>
-                    <a class="nav-link" href="#">Pricing</a>
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                </div>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#event-info">Event Info</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#meals">Meals</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact Info</a>
+                </li>
+            </ul>
+        </div>
+     </div>
+    </nav>
+
+    <!-- forms na mostly choices lang about sa event (can u come or not) -->
+     <div class="container" style="max-width: 800px; background: #fff; padding: 2rem 2rem 1rem 2rem; border-radius: 16px; box-shadow: 0 4px 24px 0 rgba(33, 150, 243, 0.10);">
+    <div id="event-info" class="section-title">Event Info</div>
+    <div class="divider"></div>
+    <div class="mb-4">
+        <div style="font-weight: bold;">The Philippine Tech Association is having an event.</div>
+        <div style="font-weight: bold;">10:00 AM - 5:00 PM</div>
+        <div style="font-weight: bold;">20 June 2025, Friday</div>
+            <div class="mt-3">
+                SMX Convention Center Manila<br>
+                Seashell Ln, Pasay<br>
+                Pasay, Metro Manila<br>
+                Philippines
             </div>
         </div>
-    </nav>
-    -->
+    </div>
 
-    <!--Header-->
-    <header>
-        <h1>Welcome to [Brand Name] 2025</h1>
-        <p>This is where I put my long message or slogan about the conference.</p>
-    </header>
+    <form id="rsvpForm">
+        <div class="mb-3" style="color: #666; font-size: 0.9rem;">
+            <span style="color: #dc3545;">*</span> indicates required fields.
+        </div>
+
+        <!-- attendance section -->
+         <div class="form-section">
+            <label class="form-label">Will you be able to attend the event? <span style="color: #dc3545;">*</span></label><br>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="attend" id="attendYes" value="Yes" required>
+                <label class="form-check-label" for="attendYes">Yes</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="attend" id="attendNo" value="No" required>
+                <label class="form-check-label" for="attendNo">No</label>
+            </div>
+            <label class="form-label mt-3">Number of People Attending <span style="color: #dc3545;">*</span></label>
+            <select class="form-select" id="numPeople" name="numPeople" required>
+                <option value="">Please Select</option>
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+         </div>
+
+         <!-- meeting thingy -->
+          <div class="form-section">
+            <div style="font-weight: bold;">There is an orientation event at 9:00 AM</div>
+            <label class="form-label mt-2">Are you able to attend the orientation?</label><br>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="orientation" id="orientationYes" value="Yes" required>
+                <label class="form-check-label" for="orientationYes">Yes</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="orientation" id="orientationNo" value="No" required>
+                <label class="form-check-label" for="orientationNo">No</label>
+            </div>
+            <label class="form-label mt-3">Number of People Attending <span style="color: #dc3545;">*</span></label>
+            <select class="form-select" id="numOrientation" name="numOrientation" required>
+                <option value="">Please Select</option>
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        
+        <!-- foods section checklist yehh -->
+         <div id="meals" class="section-title" style="font-size: 1.5rem;">Meals</div>
+         <div class="divider" style="margin-bottom: 1rem;"></div>
+         <div class="mb-2">A lunch will be provided, please select how many of each your party needs</div>
+
+        <!-- side dish -->
+          <div class="section-title" style="font-size: 1.2rem; margin-top: 1rem;">Side Dish</div>
+          <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">Salad</label>
+                <select class="form-select" name="salad">
+                    <option value="">Please Select</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+          </div>
+
+        <!-- main dishes yumm -->
+          <div class="section-title" style="font-size: 1.2rem; margin-top: 1rem;">Main Dish</div>
+          <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">Chicken Adobo</label>
+                <select class="form-select" name="adobo">
+                    <option value="">Please Select</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Grilled Fish</label>
+                <select class="form-select" name="fish">
+                    <option value="">Grilled Fish</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Chopseuy</label>
+                <select class="form-select" name="vegetarian">
+                    <option value="">Chopseuy</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+             <div class="col-md-6">
+                <label class="form-label">Pasta</label>
+                <select class="form-select" name="pasta">
+                    <option value="">Pasta</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+             <div class="col-md-6">
+                <label class="form-label">Japanese Sushi</label>
+                <select class="form-select" name="sushi">
+                    <option value="">Japanese Sushi</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+          </div>
+
+        </div>
+    </form>
+   
+
 
 
 
@@ -197,3 +291,14 @@
 
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
