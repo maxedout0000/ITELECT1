@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event RSVP</title>
+    <title>Manila Conference RSVP</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
       
@@ -128,7 +128,9 @@
     </style>
 </head>
 <body>
-<!--acts as a receipt for the whole choices select ed of the user--! 
+
+
+<!-- acts as a receipt for the whole choices selected of the user -->
 <div class="modal fade" id="receiptModal" tabindex="-1" aria-labelledby="receiptModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -137,7 +139,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body" id="receiptContent">
-        <!-- Receipt content will be injected here -->
+       
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" id="confirmReceipt">Confirm</button>
@@ -146,7 +148,7 @@
   </div>
 </div>
 
-<!--NAVBAR-->
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid" style="max-width: 800px;">
     <a class="navbar-brand" href="#event-info">Philippine Tech Association</a>
@@ -169,7 +171,7 @@
   </div>
 </nav>
 
-<!--FORMS and stuff choices mostly-->
+<!-- FORMS and stuff choices mostly -->
 
 <div class="container" style="max-width: 800px; background: #fff; padding: 2rem 2rem 1rem 2rem; border-radius: 16px; box-shadow: 0 4px 24px 0 rgba(33, 150, 243, 0.10);">
     <div id="event-info" class="section-title">Event Information</div>
@@ -192,7 +194,7 @@
             <span style="color: #dc3545;">*</span> indicates required fields
         </div>
 
-        <!--attendance checklist-->
+        <!-- attendance checklist -->
         <div class="form-section">
             <label class="form-label">Will you be able to attend the event? <span style="color: #dc3545;">*</span></label><br>
             <div class="form-check">
@@ -242,6 +244,7 @@
         <div id="meals" class="section-title" style="font-size: 1.5rem;">Meals</div>
         <div class="divider" style="margin-bottom: 1rem;"></div>
         <div class="mb-2">A lunch will be provided, please select how many of each your party needs</div>
+
         <!-- Side Dish Section -->
         <div class="section-title" style="font-size: 1.2rem; margin-top:1rem;">Side Dish</div>
         <div class="row">
@@ -249,14 +252,24 @@
                 <label class="form-label">Salad</label>
                 <select class="form-select" name="salad">
                     <option value="">Please Select</option>
-                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                 </select>
             </div>
             <div class="col-md-6">
                 <label class="form-label">Soup</label>
                 <select class="form-select" name="soup">
                     <option value="">Please Select</option>
-                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                 </select>
             </div>
         </div>
@@ -267,14 +280,24 @@
                 <label class="form-label">Chicken Adobo</label>
                 <select class="form-select" name="adobo">
                     <option value="">Please Select</option>
-                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                 </select>
             </div>
             <div class="col-md-6">
                 <label class="form-label">Grilled Fish</label>
                 <select class="form-select" name="fish">
                     <option value="">Please Select</option>
-                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                 </select>
             </div>
         </div>
@@ -283,14 +306,24 @@
                 <label class="form-label">Vegetable Stir Fry</label>
                 <select class="form-select" name="vegetarian">
                     <option value="">Please Select</option>
-                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                 </select>
             </div>
             <div class="col-md-6">
                 <label class="form-label">Pasta Primavera</label>
                 <select class="form-select" name="pasta">
                     <option value="">Please Select</option>
-                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                 </select>
             </div>
         </div>
@@ -299,14 +332,24 @@
                 <label class="form-label">Sushi Platter</label>
                 <select class="form-select" name="sushi">
                     <option value="">Please Select</option>
-                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                 </select>
             </div>
             <div class="col-md-6">
                 <label class="form-label">Indian Curry</label>
                 <select class="form-select" name="curry">
                     <option value="">Please Select</option>
-                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                 </select>
             </div>
         </div>
@@ -315,7 +358,12 @@
                 <label class="form-label">Classic Burger</label>
                 <select class="form-select" name="burger">
                     <option value="">Please Select</option>
-                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                 </select>
             </div>
         </div>
@@ -325,14 +373,24 @@
                 <label class="form-label">Cake</label>
                 <select class="form-select" name="cake">
                     <option value="">Please Select</option>
-                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                 </select>
             </div>
             <div class="col-md-6">
                 <label class="form-label">Fruit</label>
                 <select class="form-select" name="fruit">
                     <option value="">Please Select</option>
-                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                 </select>
             </div>
         </div>
@@ -341,7 +399,12 @@
                 <label class="form-label">Ice Cream</label>
                 <select class="form-select" name="icecream">
                     <option value="">Please Select</option>
-                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                 </select>
             </div>
         </div>
@@ -352,14 +415,24 @@
                 <label class="form-label">Water</label>
                 <select class="form-select" name="water">
                     <option value="">Please Select</option>
-                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                 </select>
             </div>
             <div class="col-md-6">
                 <label class="form-label">Juice</label>
                 <select class="form-select" name="juice">
                     <option value="">Please Select</option>
-                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                 </select>
             </div>
         </div>
@@ -368,14 +441,24 @@
                 <label class="form-label">Soda</label>
                 <select class="form-select" name="soda">
                     <option value="">Please Select</option>
-                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                 </select>
             </div>
             <div class="col-md-6">
                 <label class="form-label">Coffee/Tea</label>
                 <select class="form-select" name="coffeetea">
                     <option value="">Please Select</option>
-                    <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                 </select>
             </div>
         </div>
@@ -393,6 +476,7 @@
                 <input type="text" class="form-control" name="lastName" required>
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-6">
                 <label class="form-label">Email <span style="color: #dc3545;">*</span></label>
@@ -420,6 +504,7 @@
                 <input type="text" class="form-control" name="address2" placeholder="Barangay / Village / Subdivision (optional)">
             </div>
         </div>
+        
         <div class="row">
             <div class="col-md-4">
                 <input type="text" class="form-control" name="city" placeholder="City / Municipality">
@@ -443,7 +528,7 @@
 <script>
 
 
-    <!--para sa modal na parang receipt-->
+    //para sa modal receipt
 
     document.getElementById('rsvpForm').addEventListener('submit', function(e) {
         e.preventDefault();
